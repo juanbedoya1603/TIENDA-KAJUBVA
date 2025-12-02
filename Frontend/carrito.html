@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - KAJUBVA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1>KAJUBVA</h1>
+                        <span class="logo-subtitle">Jardinería Urbana</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                    <div class="nav-icons">
+                        <a href="carrito.html" class="cart-icon">
+                            🛒 <span class="cart-count">3</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Mi Carrito de Compras</h1>
+            <p>Revisa tu pedido antes de finalizar la compra</p>
+        </div>
+    </section>
+
+    <!-- Carrito de Compras -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-layout">
+                <!-- Productos en el Carrito -->
+                <div class="cart-items">
+                    <!-- Item 1 -->
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="/Images/productos/Kit de Aromáticas de Cocina.jpg" alt="Kit de Aromáticas de Cocina KAJUBVA" class="cart-item-image">
+                        </div>
+                        <div class="cart-item-details">
+                            <h3>Kit de Aromáticas de Cocina</h3>
+                            <p class="cart-item-description">Incluye: Albahaca, cilantro, perejil y menta</p>
+                            <button class="remove-btn">Eliminar</button>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <div class="quantity-controls">
+                                <button class="qty-btn">-</button>
+                                <input type="number" value="2" min="1" class="qty-input">
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">
+                            <p class="item-price">$45.000</p>
+                            <p class="item-subtotal">$90.000</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="/Images/productos/Semillas de Tomate Cherry.jpg" alt="Semillas de Tomate Cherry KAJUBVA" class="cart-item-image">
+                        </div>
+                        <div class="cart-item-details">
+                            <h3>Semillas de Tomate Cherry</h3>
+                            <p class="cart-item-description">Variedad especial para macetas</p>
+                            <button class="remove-btn">Eliminar</button>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <div class="quantity-controls">
+                                <button class="qty-btn">-</button>
+                                <input type="number" value="1" min="1" class="qty-input">
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">
+                            <p class="item-price">$10.000</p>
+                            <p class="item-subtotal">$10.000</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="/Images/productos/Sustrato Premium (5 litros).jpg" alt="Sustrato Premium KAJUBVA" class="cart-item-image">
+                        </div>
+                        <div class="cart-item-details">
+                            <h3>Sustrato Premium (5 litros)</h3>
+                            <p class="cart-item-description">Mezcla orgánica especial</p>
+                            <button class="remove-btn">Eliminar</button>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <div class="quantity-controls">
+                                <button class="qty-btn">-</button>
+                                <input type="number" value="1" min="1" class="qty-input">
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">
+                            <p class="item-price">$15.000</p>
+                            <p class="item-subtotal">$15.000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen del Pedido -->
+                <div class="cart-summary">
+                    <h2>Resumen del Pedido</h2>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>$115.000</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Envío</span>
+                        <span>$8.000</span>
+                    </div>
+                    
+                    <div class="summary-row discount">
+                        <span>Descuento</span>
+                        <span class="discount-amount">-$0</span>
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span>$123.000</span>
+                    </div>
+
+                    <div class="coupon-section">
+                        <input type="text" placeholder="Código de cupón" class="coupon-input">
+                        <button class="btn btn-outline">Aplicar</button>
+                    </div>
+
+                    <button class="btn btn-primary btn-full">Proceder al Pago</button>
+                    
+                    <div class="continue-shopping">
+                        <a href="productos.html">← Continuar Comprando</a>
+                    </div>
+
+                    <div class="cart-benefits">
+                        <div class="benefit-item-small">
+                            <span>✓</span> Envío gratis en compras de $80.000+
+                        </div>
+                        <div class="benefit-item-small">
+                            <span>✓</span> Pago 100% seguro
+                        </div>
+                        <div class="benefit-item-small">
+                            <span>✓</span> Garantía de satisfacción
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Sugeridos -->
+    <section class="suggested-products">
+        <div class="container">
+            <h2 class="section-title">También te podría gustar</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Set de Herramientas Básicas.jpg" alt="Set de Herramientas Básicas KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Set de Herramientas Básicas</h3>
+                        <p class="product-description">Pala, rastrillo y transplantador.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$25.000</span>
+                            <button class="btn btn-small">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Set de 3 Macetas Ecológicas.jpg" alt="Set de 3 Macetas Ecológicas KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Set de 3 Macetas Ecológicas</h3>
+                        <p class="product-description">Macetas biodegradables.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$18.000</span>
+                            <button class="btn btn-small">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Kit de Plantas Medicinales.jpg" alt="Kit de Plantas Medicinales KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Kit de Plantas Medicinales</h3>
+                        <p class="product-description">Manzanilla, hierbabuena y lavanda.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$42.000</span>
+                            <button class="btn btn-small">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>KAJUBVA</h3>
+                    <p>Transformando espacios urbanos en jardines sostenibles, un kit a la vez.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Guía de Cultivo</a></li>
+                        <li><a href="#">Envíos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KAJUBVA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

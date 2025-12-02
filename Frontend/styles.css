@@ -141,7 +141,14 @@ img {
    =================================== */
 
 .hero {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    /* Ajusta los colores aquí usando rgba. El último número (0.8) es la transparencia */
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.85), rgba(22, 163, 74, 0.85)), 
+                url('/Images/productos/Encabezado.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     padding: 6rem 0;
     color: var(--color-white);
 }
@@ -313,6 +320,8 @@ img {
 
 .product-image {
     position: relative;
+     display: flex;
+     justify-content: center;
     height: 250px;
     background-color: var(--color-light);
     overflow: hidden;
@@ -375,16 +384,29 @@ img {
     text-align: center;
 }
 
-/* ===================================
-   CTA SECTION
-   =================================== */
-
 .cta-section {
-    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    /* 1. Gradiente: He puesto un negro al 70% (0.7) para que sea más oscuro 
+          que el Hero y el texto resalte más.
+       2. URL: Cambia esto por la ruta de tu imagen */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/Images/productos/CTA.jpg');
+
+    /* Propiedades para ajustar la imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Configuración original tuya */
     padding: 4rem 0;
     color: var(--color-white);
+    
+    /* TRUCO DE DISEÑO: Efecto Parallax (Opcional)
+       Si descomentas la línea de abajo, la imagen se queda "quieta" 
+       mientras haces scroll. Se ve muy moderno. */
+    /* background-attachment: fixed; */
 }
 
+/* El resto de clases se quedan igual */
 .cta-content {
     text-align: center;
     max-width: 700px;
@@ -465,8 +487,16 @@ img {
    =================================== */
 
 .page-header {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    padding: 3rem 0;
+    /* Gradiente negro suave (0.6) + Tu imagen */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('/Images/productos/Encabezado.jpg');
+
+    background-size: cover;
+    background-position: center; /* Vital para headers cortos */
+    background-repeat: no-repeat;
+
+    /* Tu configuración (le subí un poco el padding para que la foto respire) */
+    padding: 5rem 0; /* Antes tenías 3rem, 5rem se ve más moderno */
     text-align: center;
     color: var(--color-white);
 }

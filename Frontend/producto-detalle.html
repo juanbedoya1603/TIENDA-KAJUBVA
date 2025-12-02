@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit de Aromáticas de Cocina - KAJUBVA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header / Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1>KAJUBVA</h1>
+                        <span class="logo-subtitle">Jardinería Urbana</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                    <div class="nav-icons">
+                        <a href="carrito.html" class="cart-icon">
+                            🛒 <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Inicio</a> /
+            <a href="productos.html">Productos</a> /
+            <a href="kits.html">Kits</a> /
+            <span>Kit de Aromáticas de Cocina</span>
+        </div>
+    </div>
+
+    <!-- Detalle del Producto -->
+    <script src="datos-productos.js"></script>
+
+
+    <div class="product-detail-container">
+        <div class="product-detail-grid">
+            <div class="product-gallery">
+                <img id="detalle-imagen" src="" alt="Producto" class="main-image">
+            </div>
+
+            <div class="product-info-detail">
+                <span id="detalle-categoria" class="product-category-label">Categoría</span>
+
+                <h1 id="detalle-nombre">Cargando producto...</h1>
+
+                <div id="detalle-precio" class="product-price-large"></div>
+
+                <p id="detalle-descripcion" class="product-description-full"></p>
+
+                <div class="specifications-box">
+                    <h3>Especificaciones</h3>
+                    <ul id="detalle-specs" class="specs-list">
+                    </ul>
+                </div>
+
+                <div class="purchase-actions">
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="btn btn-primary btn-large">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Obtener el ID de la URL (ej: ?id=kit-aromaticas)
+            const params = new URLSearchParams(window.location.search);
+            const productoId = params.get('id');
+
+            // 2. Buscar en la base de datos
+            const producto = productosDB[productoId];
+
+            // 3. Si existe, llenar el HTML
+            if (producto) {
+                document.getElementById('detalle-imagen').src = producto.imagen;
+                document.getElementById('detalle-imagen').alt = producto.nombre;
+                document.getElementById('detalle-nombre').textContent = producto.nombre;
+                document.getElementById('detalle-categoria').textContent = producto.categoria;
+                // Formato de moneda
+                document.getElementById('detalle-precio').textContent = "$" + producto.precio.toLocaleString('es-CO');
+                document.getElementById('detalle-descripcion').textContent = producto.descripcion;
+
+                // 4. Lógica especial para las especificaciones (Tabla dinámica)
+                const specsContainer = document.getElementById('detalle-specs');
+                specsContainer.innerHTML = ''; // Limpiar lo que haya
+
+                // Recorrer el objeto specs y crear elementos de lista
+                for (const [clave, valor] of Object.entries(producto.specs)) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${clave}:</strong> ${valor}`;
+                    specsContainer.appendChild(li);
+                }
+
+            } else {
+                // Si el ID no existe o está vacío
+                document.querySelector('.product-detail-container').innerHTML = '<h2>Producto no encontrado :(</h2><a href="productos.html" class="btn">Volver al catálogo</a>';
+            }
+        });
+    </script>
+
+    <!-- Tabs de Información Adicional -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="descripcion">Descripción Detallada</button>
+                <button class="tab-btn" data-tab="cuidados">Cuidados</button>
+                <button class="tab-btn" data-tab="resenas">Reseñas (127)</button>
+            </div>
+
+            <div class="tabs-content">
+                <div class="tab-panel active" id="descripcion">
+                    <h3>Sobre este Kit</h3>
+                    <p>
+                        El Kit de Aromáticas de Cocina ha sido cuidadosamente diseñado para garantizar el éxito
+                        en el cultivo de hierbas aromáticas dentro de espacios urbanos reducidos. Cada componente
+                        ha sido seleccionado pensando en la facilidad de uso y en obtener resultados óptimos desde
+                        el primer intento.
+                    </p>
+                    <p>
+                        Las variedades de semillas incluidas han sido específicamente elegidas por su adaptabilidad
+                        a condiciones de interior, su rápido crecimiento y su alto rendimiento en macetas pequeñas.
+                        La albahaca Genovesa ofrece un sabor intenso perfecto para salsas italianas, el cilantro
+                        añade frescura a tus platillos, el perejil liso es versátil para cualquier preparación,
+                        y la menta brinda ese toque refrescante para bebidas y postres.
+                    </p>
+                    <p>
+                        El sustrato incluido es una mezcla orgánica premium que garantiza el drenaje adecuado y
+                        los nutrientes necesarios para un crecimiento vigoroso. Las macetas biodegradables permiten
+                        una transición sin estrés si decides trasplantar más adelante.
+                    </p>
+                </div>
+
+                <div class="tab-panel" id="cuidados">
+                    <h3>Guía de Cuidados</h3>
+                    <h4>Siembra</h4>
+                    <p>Llena las macetas con el sustrato húmedo. Siembra 3-4 semillas por maceta a 0.5cm de profundidad.
+                        Cubre ligeramente con sustrato.</p>
+
+                    <h4>Riego</h4>
+                    <p>Mantén el sustrato húmedo pero no encharcado. Riega cuando la superficie esté seca al tacto. Usa
+                        el pulverizador para las plántulas jóvenes.</p>
+
+                    <h4>Luz</h4>
+                    <p>Coloca cerca de una ventana con luz indirecta. Mínimo 4-6 horas de luz natural. Evita sol directo
+                        intenso durante las horas más calurosas.</p>
+
+                    <h4>Cosecha</h4>
+                    <p>Comienza a cosechar cuando las plantas tengan al menos 15cm de altura. Corta siempre desde
+                        arriba, nunca más del 30% de la planta a la vez.</p>
+                </div>
+
+                <div class="tab-panel" id="resenas">
+                    <h3>Reseñas de Clientes</h3>
+                    <div class="review">
+                        <div class="review-header">
+                            <strong>María González</strong>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p>Excelente kit para principiantes. Todo germinó en menos de 10 días y ya estoy usando mi
+                            propia albahaca fresca. Las instrucciones son muy claras.</p>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <strong>Carlos Ramírez</strong>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p>Perfecto para mi apartamento pequeño. El cilantro creció increíblemente rápido. Muy
+                            recomendado.</p>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <strong>Ana Martínez</strong>
+                            <span class="review-rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <p>Me encanta tener hierbas frescas en casa. Solo la menta tardó un poco más en germinar pero al
+                            final todas crecieron bien.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Relacionados -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">Productos Relacionados</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="placeholder-image">Kit de Hortalizas</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kit de Hortalizas de Balcón</h3>
+                        <p class="product-description">Tomates cherry, lechugas y pimientos.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$55.000</span>
+                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="placeholder-image">Set Macetas</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Set de 3 Macetas Ecológicas</h3>
+                        <p class="product-description">Macetas biodegradables adicionales.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$18.000</span>
+                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="placeholder-image">Sustrato</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sustrato Premium (5 litros)</h3>
+                        <p class="product-description">Mezcla orgánica especial.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$15.000</span>
+                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>KAJUBVA</h3>
+                    <p>Transformando espacios urbanos en jardines sostenibles, un kit a la vez.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Guía de Cultivo</a></li>
+                        <li><a href="#">Envíos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KAJUBVA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

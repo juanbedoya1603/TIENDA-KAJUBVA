@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - KAJUBVA | Jardinería Urbana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1>KAJUBVA</h1>
+                        <span class="logo-subtitle">Jardinería Urbana</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html" class="active">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                    <div class="nav-icons">
+                        <a href="carrito.html" class="cart-icon">
+                            🛒 <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nuestros Productos</h1>
+            <p>Descubre toda nuestra selección de kits y semillas para tu jardín urbano</p>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-wrapper">
+                <div class="filter-group">
+                    <label>Categoría:</label>
+                    <select class="filter-select">
+                        <option value="todos">Todos los productos</option>
+                        <option value="kits">Kits Completos</option>
+                        <option value="semillas">Semillas</option>
+                        <option value="accesorios">Accesorios</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Ordenar por:</label>
+                    <select class="filter-select">
+                        <option value="destacados">Más Destacados</option>
+                        <option value="menor-precio">Menor Precio</option>
+                        <option value="mayor-precio">Mayor Precio</option>
+                        <option value="nuevos">Más Nuevos</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                <!-- Kit 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge">Más Vendido</div>
+                        <img src="/Images/productos/Kit de Aromáticas de Cocina.jpg" alt="Kit de Aromáticas KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Kit de Aromáticas de Cocina</h3>
+                        <p class="product-description">Incluye: Albahaca, cilantro, perejil y menta con todo lo necesario.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$45.000</span>
+                            <a href="producto-detalle.html?id=kit-aromaticas">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kit 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Kit de Hortalizas de Balcón.jpg" alt="Kit de Hortalizas de Balcón KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Kit de Hortalizas de Balcón</h3>
+                        <p class="product-description">Tomates cherry, lechugas y pimientos para tu balcón.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$55.000</span>
+                            <a href="producto-detalle.html?id=kit-balcon">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kit 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge">Nuevo</div>
+                        <img src="/Images/productos/Kit de Flores Ornamentales.jpg" alt="Kit de Flores Ornamentales KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Kit de Flores Ornamentales</h3>
+                        <p class="product-description">Petunias, caléndulas y girasoles miniatura.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$38.000</span>
+                            <a href="producto-detalle.html?id=kit-flores">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kit 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Kit Starter para Principiantes.jpg" alt="Kit Starter para Principiantes KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Kit Starter para Principiantes</h3>
+                        <p class="product-description">Kit básico ideal para quien empieza en la jardinería urbana.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$32.000</span>
+                            <a href="producto-detalle.html?id=kit-starter">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semillas 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Semillas de Albahaca Genovesa.jpg" alt="Semillas de Albahaca Genovesa KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Semillas de Albahaca Genovesa</h3>
+                        <p class="product-description">Paquete de semillas premium de albahaca, perfecta para cocina.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$8.000</span>
+                            <a href="producto-detalle.html?id=semilla-albahaca">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semillas 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Semillas de Tomate Cherry.jpg" alt="Semillas de Tomate Cherry KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Semillas de Tomate Cherry</h3>
+                        <p class="product-description">Variedad especial para macetas y espacios reducidos.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$10.000</span>
+                            <a href="producto-detalle.html?id=semilla-tomate">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semillas 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Semillas de Cilantro.jpg" alt="Semillas de Cilantro KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Semillas de Cilantro</h3>
+                        <p class="product-description">Cilantro fresco para tus recetas, crecimiento rápido.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$7.000</span>
+                            <a href="producto-detalle.html?id=semilla-cilantro">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semillas 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge">Nuevo</div>
+                        <img src="/Images/productos/Semillas de Lechuga Batavia.jpg" alt="Semillas de Lechuga Batavia KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Semillas de Lechuga Batavia</h3>
+                        <p class="product-description">Lechuga crocante ideal para ensaladas frescas.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$9.000</span>
+                            <a href="producto-detalle.html?id=semilla-lechuga">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kit 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Kit de Plantas Medicinales.jpg" alt="Kit de Plantas Medicinales KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Kit de Plantas Medicinales</h3>
+                        <p class="product-description">Manzanilla, hierbabuena y lavanda para tu bienestar.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$42.000</span>
+                            <a href="producto-detalle.html?id=kit-medicinal">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accesorios 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Set de 3 Macetas Ecológicas.jpg" alt="Set de 3 Macetas Ecológicas KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Set de 3 Macetas Ecológicas</h3>
+                        <p class="product-description">Macetas biodegradables de fibra de coco, varios tamaños.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$18.000</span>
+                            <a href="producto-detalle.html?id=set-macetas">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accesorios 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Set de Herramientas Básicas.jpg" alt="Set de Herramientas Básicas KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Set de Herramientas Básicas</h3>
+                        <p class="product-description">Pala, rastrillo y transplantador de acero inoxidable.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$25.000</span>
+                            <a href="producto-detalle.html?id=set-herramientas">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accesorios 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Images/productos/Sustrato Premium (5 litros).jpg" alt="Sustrato Premium (5 litros) KAJUBVA" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3>Sustrato Premium (5 litros)</h3>
+                        <p class="product-description">Mezcla orgánica especial para cultivos en maceta.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$15.000</span>
+                            <a href="producto-detalle.html?id=sustrato-premium">Ver Detalles
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>KAJUBVA</h3>
+                    <p>Transformando espacios urbanos en jardines sostenibles, un kit a la vez.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Guía de Cultivo</a></li>
+                        <li><a href="#">Envíos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KAJUBVA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
