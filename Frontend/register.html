@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - KAJUBVA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="index.html">
+                            <h1>KAJUBVA</h1>
+                            <span class="logo-subtitle">Tu jardín urbano</span>
+                        </a>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                    <div class="nav-icons">
+                        <a href="carrito.html" class="cart-icon">
+                            🛒
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Crear Cuenta</h1>
+            <p>Únete a la comunidad KAJUBVA</p>
+        </div>
+    </section>
+
+    <!-- Formulario de Registro -->
+    <section class="contact-section" style="padding: 4rem 0;">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto;">
+                
+                <!-- Alerta de éxito/error -->
+                <div id="alertMessage" style="display: none; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center;"></div>
+
+                <div class="contact-form-wrapper">
+                    <h2>Regístrate</h2>
+                    <p class="form-intro">Completa tus datos para crear tu cuenta y comenzar tu jardín urbano</p>
+
+                    <form id="registerForm" class="contact-form">
+                        
+                        <!-- Nombre completo -->
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                required
+                                placeholder="Ej: Juan Pérez"
+                                minlength="3"
+                            >
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                placeholder="correo@ejemplo.com"
+                            >
+                        </div>
+
+                        <!-- Teléfono -->
+                        <div class="form-group">
+                            <label for="telefono">Teléfono (Opcional)</label>
+                            <input 
+                                type="tel" 
+                                id="telefono" 
+                                name="telefono"
+                                placeholder="Ej: 3001234567"
+                                pattern="[0-9]{10}"
+                            >
+                            <small style="color: #666; font-size: 0.85rem;">10 dígitos sin espacios</small>
+                        </div>
+
+                        <!-- Contraseña -->
+                        <div class="form-group">
+                            <label for="password">Contraseña *</label>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                required
+                                placeholder="Mínimo 6 caracteres"
+                                minlength="6"
+                            >
+                        </div>
+
+                        <!-- Confirmar contraseña -->
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Contraseña *</label>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                name="confirmPassword" 
+                                required
+                                placeholder="Repite tu contraseña"
+                                minlength="6"
+                            >
+                        </div>
+
+                        <!-- Dirección (Opcional) -->
+                        <div class="form-group">
+                            <label for="direccion">Dirección (Opcional)</label>
+                            <textarea 
+                                id="direccion" 
+                                name="direccion" 
+                                rows="3"
+                                placeholder="Calle, número, ciudad..."
+                            ></textarea>
+                        </div>
+
+                        <!-- Términos y condiciones -->
+                        <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                            <input 
+                                type="checkbox" 
+                                id="terminos" 
+                                name="terminos" 
+                                required
+                                style="margin-top: 4px; width: auto;"
+                            >
+                            <label for="terminos" style="margin-bottom: 0; cursor: pointer; font-weight: normal;">
+                                Acepto los <a href="#" style="color: var(--color-primary);">términos y condiciones</a> y la <a href="#" style="color: var(--color-primary);">política de privacidad</a>
+                            </label>
+                        </div>
+
+                        <!-- Botón de registro -->
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Crear Cuenta
+                        </button>
+
+                        <!-- Link a login -->
+                        <div style="text-align: center; margin-top: 1.5rem;">
+                            <p style="color: #666;">
+                                ¿Ya tienes una cuenta? 
+                                <a href="login.html" style="color: var(--color-primary); font-weight: 600;">Inicia Sesión</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Beneficios de registrarse -->
+                <div style="margin-top: 3rem; background-color: var(--color-light); padding: 2rem; border-radius: 12px;">
+                    <h3 style="color: var(--color-dark); margin-bottom: 1rem; text-align: center;">
+                        ¿Por qué registrarte?
+                    </h3>
+                    <div style="display: grid; gap: 1rem;">
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <span style="font-size: 2rem;">🛒</span>
+                            <div>
+                                <strong style="color: var(--color-dark);">Carrito persistente</strong>
+                                <p style="margin: 0; color: #666; font-size: 0.9rem;">Guarda tus productos favoritos</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <span style="font-size: 2rem;">📦</span>
+                            <div>
+                                <strong style="color: var(--color-dark);">Historial de pedidos</strong>
+                                <p style="margin: 0; color: #666; font-size: 0.9rem;">Revisa tus compras anteriores</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <span style="font-size: 2rem;">🎁</span>
+                            <div>
+                                <strong style="color: var(--color-dark);">Ofertas exclusivas</strong>
+                                <p style="margin: 0; color: #666; font-size: 0.9rem;">Recibe descuentos especiales</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <span style="font-size: 2rem;">🚀</span>
+                            <div>
+                                <strong style="color: var(--color-dark);">Checkout rápido</strong>
+                                <p style="margin: 0; color: #666; font-size: 0.9rem;">Compra en segundos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>KAJUBVA</h3>
+                    <p>Tu aliado para cultivar un futuro más verde y sostenible en la ciudad.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KAJUBVA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

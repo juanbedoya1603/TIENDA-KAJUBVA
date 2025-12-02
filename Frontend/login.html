@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - KAJUBVA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="index.html">
+                            <h1>KAJUBVA</h1>
+                            <span class="logo-subtitle">Tu jardín urbano</span>
+                        </a>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                    <div class="nav-icons">
+                        <a href="carrito.html" class="cart-icon">
+                            🛒
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Iniciar Sesión</h1>
+            <p>Accede a tu cuenta KAJUBVA</p>
+        </div>
+    </section>
+
+    <!-- Formulario de Login -->
+    <section class="contact-section" style="padding: 4rem 0;">
+        <div class="container">
+            <div style="max-width: 500px; margin: 0 auto;">
+                
+                <!-- Alerta de éxito/error -->
+                <div id="alertMessage" style="display: none; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center;"></div>
+
+                <div class="contact-form-wrapper">
+                    <h2>Bienvenido de nuevo</h2>
+                    <p class="form-intro">Ingresa tus credenciales para acceder</p>
+
+                    <form id="loginForm" class="contact-form">
+                        
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                placeholder="correo@ejemplo.com"
+                                autocomplete="email"
+                            >
+                        </div>
+
+                        <!-- Contraseña -->
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                required
+                                placeholder="Tu contraseña"
+                                autocomplete="current-password"
+                            >
+                        </div>
+
+                        <!-- Recordarme -->
+                        <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input 
+                                    type="checkbox" 
+                                    id="recordarme" 
+                                    name="recordarme"
+                                    style="width: auto; margin: 0;"
+                                >
+                                <label for="recordarme" style="margin: 0; font-weight: normal; cursor: pointer;">
+                                    Recordarme
+                                </label>
+                            </div>
+                            <a href="#" style="color: var(--color-primary); font-size: 0.9rem;">
+                                ¿Olvidaste tu contraseña?
+                            </a>
+                        </div>
+
+                        <!-- Botón de login -->
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Iniciar Sesión
+                        </button>
+
+                        <!-- Link a registro -->
+                        <div style="text-align: center; margin-top: 1.5rem;">
+                            <p style="color: #666;">
+                                ¿No tienes una cuenta? 
+                                <a href="register.html" style="color: var(--color-primary); font-weight: 600;">Regístrate aquí</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Beneficios de estar registrado -->
+                <div style="margin-top: 3rem; text-align: center;">
+                    <p style="color: #666; margin-bottom: 1rem;">O continúa como</p>
+                    <a href="productos.html" style="color: var(--color-primary); font-weight: 600; text-decoration: underline;">
+                        Visitante (sin cuenta)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>KAJUBVA</h3>
+                    <p>Tu aliado para cultivar un futuro más verde y sostenible en la ciudad.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KAJUBVA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

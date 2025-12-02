@@ -1629,3 +1629,161 @@ img {
         grid-template-columns: 1fr;
     }
 }
+/* ================================
+   CONTENEDOR GENERAL DEL CARRITO
+================================= */
+.carrito-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* ================================
+   TÍTULO
+================================= */
+.carrito-container h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* ================================
+   LISTA DE PRODUCTOS
+================================= */
+.carrito-items {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ================================
+   TARJETA DEL PRODUCTO
+================================= */
+.carrito-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #e6e6e6;
+    transition: 0.2s;
+}
+
+.carrito-item:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Imagen */
+.carrito-item img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+/* Info */
+.carrito-info {
+    flex-grow: 1;
+}
+
+.carrito-info h3 {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.carrito-info p {
+    font-size: 15px;
+    color: #666;
+}
+
+/* ================================
+   CONTROLES DE CANTIDAD
+================================= */
+.carrito-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carrito-cantidad button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 6px;
+    background: #201c75;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s ease;
+}
+
+.carrito-cantidad button:hover {
+    background: #403aa8;
+}
+
+/* Cantidad */
+.carrito-cantidad span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ================================
+   ELIMINAR PRODUCTO
+================================= */
+.btn-eliminar {
+    background: #ff3b3b;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-left: 15px;
+}
+
+.btn-eliminar:hover {
+    background: #ff6262;
+}
+
+/* ================================
+   TOTAL Y BOTÓN DE COMPRA
+================================= */
+.carrito-total {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito-total span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Botón pagar */
+.btn-comprar {
+    background: #201c75;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .3s;
+}
+
+.btn-comprar:hover {
+    background: #403aa8;
+    transform: scale(1.03);
+}

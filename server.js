@@ -9,56 +9,63 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ==================== MIDDLEWARE ====================
+// 1. CORS (PRIMERO)
 app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true
 }));
+
+// 2. Body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
 
-// Configuración de sesiones
+// 3. Sesiones (ANTES de archivos estáticos)
 app.use(session({
     secret: process.env.SESSION_SECRET || 'kajubva-secret-key-2025',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,  // ✅ CAMBIADO A FALSE
     cookie: { 
-        secure: false, // Cambiar a true en producción con HTTPS
-        maxAge: 24 * 60 * 60 * 1000 // 24 horas
+        secure: false,
+        httpOnly: true,  // ✅ AGREGADO
+        maxAge: 24 * 60 * 60 * 1000,
+        sameSite: 'lax'  // ✅ AGREGADO
     }
 }));
 
+// 4. Archivos estáticos
+app.use(express.static('Frontend'));  // ✅ Frontend es correcto
+
 // ==================== RUTAS HTML ====================
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'index.html'));  // ✅ CAMBIADO
 });
 
 app.get('/productos.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'productos.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'productos.html'));  // ✅ CAMBIADO
 });
 
 app.get('/kits.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'kits.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'kits.html'));  // ✅ CAMBIADO
 });
 
 app.get('/semillas.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'semillas.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'semillas.html'));  // ✅ CAMBIADO
 });
 
 app.get('/sobre-nosotros.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'sobre-nosotros.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'sobre-nosotros.html'));  // ✅ CAMBIADO
 });
 
 app.get('/contacto.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'contacto.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'contacto.html'));  // ✅ CAMBIADO
 });
 
 app.get('/carrito.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'carrito.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'carrito.html'));  // ✅ CAMBIADO
 });
 
 app.get('/producto-detalle.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'producto-detalle.html'));
+    res.sendFile(path.join(__dirname, 'Frontend', 'producto-detalle.html'));  // ✅ CAMBIADO
 });
 
 // ==================== RUTAS DEL API ====================
@@ -73,7 +80,7 @@ const categoriasRoutes = require('./routes/categorias.routes');
 app.use('/api/productos', productosRoutes);
 app.use('/api/carrito', carritoRoutes);
 app.use('/api/pedidos', pedidosRoutes);
-app.use('/api', usuariosRoutes); // Login, registro, logout
+app.use('/api', usuariosRoutes);
 app.use('/api/contacto', contactoRoutes);
 app.use('/api/categorias', categoriasRoutes);
 

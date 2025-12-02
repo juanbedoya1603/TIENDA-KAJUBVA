@@ -61,122 +61,8 @@
     <section class="products-section">
         <div class="container">
             <div class="products-grid">
-                <!-- Kit 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Más Vendido</div>
-                        <div class="placeholder-image">Kit de Aromáticas</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kit de Aromáticas de Cocina</h3>
-                        <p class="product-description">Albahaca, cilantro, perejil y menta. Perfecto para tu cocina.</p>
-                        <div class="product-specs-mini">
-                            <span>🌱 4 variedades</span>
-                            <span>📦 Kit completo</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">$45.000</span>
-                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kit 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="placeholder-image">Kit de Hortalizas</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kit de Hortalizas de Balcón</h3>
-                        <p class="product-description">Tomates cherry, lechugas y pimientos. Ideal para balcones.</p>
-                        <div class="product-specs-mini">
-                            <span>🌱 3 variedades</span>
-                            <span>📦 Kit completo</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">$55.000</span>
-                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kit 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Nuevo</div>
-                        <div class="placeholder-image">Kit de Flores</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kit de Flores Ornamentales</h3>
-                        <p class="product-description">Petunias, caléndulas y girasoles miniatura para decorar.</p>
-                        <div class="product-specs-mini">
-                            <span>🌱 3 variedades</span>
-                            <span>📦 Kit completo</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">$38.000</span>
-                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kit 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="placeholder-image">Kit Starter</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kit Starter para Principiantes</h3>
-                        <p class="product-description">Kit básico ideal para quien empieza en la jardinería urbana.</p>
-                        <div class="product-specs-mini">
-                            <span>🌱 2 variedades</span>
-                            <span>📦 Kit básico</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">$32.000</span>
-                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kit 5 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="placeholder-image">Kit Medicinal</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kit de Plantas Medicinales</h3>
-                        <p class="product-description">Manzanilla, hierbabuena y lavanda para tu bienestar.</p>
-                        <div class="product-specs-mini">
-                            <span>🌱 3 variedades</span>
-                            <span>📦 Kit completo</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">$42.000</span>
-                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kit 6 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Premium</div>
-                        <div class="placeholder-image">Kit Completo</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kit Premium Huerto Completo</h3>
-                        <p class="product-description">La experiencia completa: 6 variedades + herramientas.</p>
-                        <div class="product-specs-mini">
-                            <span>🌱 6 variedades</span>
-                            <span>📦 Kit premium</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">$85.000</span>
-                            <a href="producto-detalle.html" class="btn btn-small">Ver Detalles</a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Los kits se cargarán dinámicamente desde el backend -->
+                <div class="loading">Cargando kits...</div>
             </div>
         </div>
     </section>
@@ -250,5 +136,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- ⚠️ IMPORTANTE: Scripts para conectar con el backend -->
+    <script src="js/api.js"></script>
+    <script src="js/kits.js"></script>
 </body>
 </html>

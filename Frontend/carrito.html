@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    
+    <link rel="stylesheet" href="../Frontend/carrito.css">
+
+    <!-- API necesaria -->
+    <script defer src="../js/api.js"></script>
+
+    <!-- Lógica del carrito -->
+    <script defer src="../js/carrito.js"></script>
+</head>
+
+<body>
+
+<section class="carrito-section">
+    <div class="container cart-layout">
+
+        <h1 class="carrito-title">🛒 Tu Carrito</h1>
+
+        <!-- CONTENEDOR DONDE SE PINTAN LOS ITEMS -->
+        <div id="carrito-items" class="cart-items">
+            <!-- Items dinámicos -->
+        </div>
+
+        <!-- RESUMEN DEL PEDIDO -->
+        <div class="carrito-resumen">
+            <h2>Resumen del Pedido</h2>
+
+            <div class="resumen-linea">
+                <span>Subtotal:</span>
+                <span id="carrito-subtotal">$0</span>
+            </div>
+
+            <div class="resumen-linea total">
+                <span>Total:</span>
+                <span id="carrito-total">$0</span>
+            </div>
+
+            <button id="btn-checkout" class="btn btn-primary">
+                Proceder al Pago
+            </button>
+
+            <button id="btn-vaciar-carrito" class="btn btn-secondary">
+                Vaciar Carrito
+            </button>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

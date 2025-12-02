@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - KAJUBVA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1>KAJUBVA</h1>
+                        <span class="logo-subtitle">Jardinería Urbana</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html" class="active">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                    <div class="nav-icons">
+                        <a href="carrito.html" class="cart-icon">
+                            🛒 <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Inicio</a> / 
+            <a href="productos.html">Productos</a> / 
+            <span id="breadcrumb-name">Producto</span>
+        </div>
+    </section>
+
+    <!-- Detalle del Producto -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-grid">
+                <!-- Imágenes del Producto -->
+                <div class="product-detail-image">
+                    <!-- Este contenedor se rellena con <img> desde JS -->
+                    <div class="placeholder-image-large" id="main-image">
+                        Cargando...
+                    </div>
+                    <div class="product-thumbnails" id="thumbnails">
+                        <!-- Se generan dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Información del Producto -->
+                <div class="product-detail-info">
+                    <span class="product-badge-large" id="product-badge" style="display: none;">Badge</span>
+                    
+                    <h1 id="product-name">Cargando producto...</h1>
+                    
+                    <div class="product-rating" id="product-rating">
+                        ⭐⭐⭐⭐⭐ <span>(0 reseñas)</span>
+                    </div>
+                    
+                    <div class="product-detail-price" id="product-price">$0</div>
+                    
+                    <p class="product-detail-description" id="product-description">
+                        Cargando descripción...
+                    </p>
+
+                    <!-- Características (para semillas/kits) -->
+                    <div class="product-features" id="product-features" style="display: none;">
+                        <h3>Características</h3>
+                        <ul id="features-list">
+                            <!-- Se genera dinámicamente -->
+                        </ul>
+                    </div>
+
+                    <!-- Especificaciones -->
+                    <div class="product-specs" id="product-specs" style="display: none;">
+                        <h3>Especificaciones</h3>
+                        <ul id="specs-list">
+                            <!-- Se genera dinámicamente -->
+                        </ul>
+                    </div>
+
+                    <!-- Acciones del Producto -->
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <label for="quantity">Cantidad:</label>
+                            <div class="quantity-controls">
+                                <button class="qty-btn" type="button" onclick="cambiarCantidad(-1)">−</button>
+                                <input type="number" id="quantity" class="qty-input" value="1" min="1" max="99">
+                                <button class="qty-btn" type="button" onclick="cambiarCantidad(1)">+</button>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-add-cart" type="button" onclick="agregarAlCarrito()">
+                            🛒 Agregar al Carrito
+                        </button>
+                    </div>
+
+                    <!-- Stock -->
+                    <div id="stock-info" style="margin-top: 1rem; color: #666;">
+                        <span id="stock-text"></span>
+                    </div>
+
+                    <!-- Beneficios -->
+                    <div class="product-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🚚</span>
+                            <div>
+                                <strong>Envío Gratis</strong>
+                                <p>En compras superiores a $50.000</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌱</span>
+                            <div>
+                                <strong>Garantía de Germinación</strong>
+                                <p>85% de tasa de germinación garantizada</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">📖</span>
+                            <div>
+                                <strong>Guía Incluida</strong>
+                                <p>Instrucciones detalladas de cultivo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs de Información -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <!-- pasar 'event' al handler evita usar la variable global event -->
+                <button class="tab-btn active" onclick="cambiarTab(event, 'descripcion')">Descripción</button>
+                <button class="tab-btn" onclick="cambiarTab(event, 'especificaciones')">Especificaciones</button>
+                <button class="tab-btn" onclick="cambiarTab(event, 'cuidados')">Guía de Cultivo</button>
+            </div>
+            
+            <div class="tabs-content">
+                <!-- Tab Descripción -->
+                <div class="tab-panel active" id="tab-descripcion">
+                    <h3>Descripción Completa</h3>
+                    <p id="descripcion-completa">Cargando...</p>
+                </div>
+                
+                <!-- Tab Especificaciones -->
+                <div class="tab-panel" id="tab-especificaciones">
+                    <h3>Especificaciones Técnicas</h3>
+                    <div id="especificaciones-completas">Cargando...</div>
+                </div>
+                
+                <!-- Tab Cuidados -->
+                <div class="tab-panel" id="tab-cuidados">
+                    <h3>Guía de Cultivo y Cuidados</h3>
+                    <div id="guia-cultivo">
+                        <h4>Preparación</h4>
+                        <p>Información sobre cómo preparar el espacio y las macetas.</p>
+                        
+                        <h4>Siembra</h4>
+                        <p>Instrucciones paso a paso para la siembra.</p>
+                        
+                        <h4>Cuidados</h4>
+                        <p>Riego, luz, nutrientes y mantenimiento general.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Relacionados -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">Productos Relacionados</h2>
+            <p class="section-subtitle">Te puede interesar también</p>
+            <div class="products-grid" id="related-products">
+                <!-- Se genera dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>KAJUBVA</h3>
+                    <p>Transformando espacios urbanos en jardines sostenibles, un kit a la vez.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="kits.html">Kits</a></li>
+                        <li><a href="semillas.html">Semillas</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Guía de Cultivo</a></li>
+                        <li><a href="#">Envíos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KAJUBVA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts (defer para que se ejecuten después de parsear el DOM) -->
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/api.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/carrito.js"></script>
+    <script defer src="js/producto-detalle.js"></script>
+</body>
+</html>

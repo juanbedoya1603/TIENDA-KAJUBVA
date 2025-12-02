@@ -373,5 +373,34 @@
             </div>
         </div>
     </footer>
+    <!-- Scripts del API -->
+    <script src="js/api.js"></script>
+    <script src="js/productos.js"></script>
+    <!-- Nota: semillas.js puede ser igual a productos.js pero con filtro ?tipo=semilla -->
+     <script>
+// Cargar solo kits o solo semillas
+window.addEventListener('DOMContentLoaded', () => {
+    const esKits = window.location.pathname.includes('kits.html');
+    const esSemillas = window.location.pathname.includes('semillas.html');
+    
+    if (esKits) {
+        // Forzar filtro de kits
+        const url = new URL(window.location);
+        url.searchParams.set('tipo', 'kit');
+        if (url.toString() !== window.location.href) {
+            window.location.href = url.toString();
+        }
+    }
+    
+    if (esSemillas) {
+        // Forzar filtro de semillas
+        const url = new URL(window.location);
+        url.searchParams.set('tipo', 'semilla');
+        if (url.toString() !== window.location.href) {
+            window.location.href = url.toString();
+        }
+    }
+});
+</script>
 </body>
 </html>
