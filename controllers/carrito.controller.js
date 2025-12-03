@@ -1,12 +1,15 @@
-// controllers/carrito.controller.js - Lógica del carrito de compras
+// controllers/carrito.controller.js - CORREGIDO
 const pool = require('../config/database');
 
 const carritoController = {
     // Obtener carrito del usuario/sesión
     obtener: async (req, res) => {
         try {
-            const sesionId = req.session.id;
+            const sesionId = req.sessionID; // ✅ CAMBIO AQUÍ
             const usuarioId = req.session.usuarioId || null;
+
+            console.log('🛒 OBTENER CARRITO - Session ID:', sesionId);
+            console.log('🛒 OBTENER CARRITO - Usuario ID:', usuarioId);
 
             // Buscar carrito existente
             let [carrito] = await pool.query(
@@ -78,8 +81,12 @@ const carritoController = {
     agregar: async (req, res) => {
         try {
             const { producto_id, cantidad = 1 } = req.body;
-            const sesionId = req.session.id;
+            const sesionId = req.sessionID; // ✅ CAMBIO AQUÍ
             const usuarioId = req.session.usuarioId || null;
+
+            console.log('➕ AGREGAR AL CARRITO - Session ID:', sesionId);
+            console.log('➕ AGREGAR AL CARRITO - Usuario ID:', usuarioId);
+            console.log('➕ AGREGAR AL CARRITO - Producto ID:', producto_id);
 
             // Validar cantidad
             if (cantidad < 1) {
@@ -122,8 +129,10 @@ const carritoController = {
                     [usuarioId, sesionId]
                 );
                 carritoId = result.insertId;
+                console.log('✅ CARRITO CREADO - ID:', carritoId);
             } else {
                 carritoId = carrito[0].id;
+                console.log('✅ CARRITO ENCONTRADO - ID:', carritoId);
             }
 
             // Verificar si el producto ya está en el carrito
@@ -147,12 +156,14 @@ const carritoController = {
                     'UPDATE carrito_items SET cantidad = cantidad + ? WHERE id = ?',
                     [cantidad, itemExistente[0].id]
                 );
+                console.log('✅ CANTIDAD ACTUALIZADA en item existente');
             } else {
                 // Insertar nuevo item
                 await pool.query(
                     'INSERT INTO carrito_items (carrito_id, producto_id, cantidad, precio_unitario) VALUES (?, ?, ?, ?)',
                     [carritoId, producto_id, cantidad, producto[0].precio]
                 );
+                console.log('✅ NUEVO ITEM AGREGADO al carrito');
             }
 
             res.json({ 
@@ -160,7 +171,7 @@ const carritoController = {
                 message: 'Producto agregado al carrito' 
             });
         } catch (error) {
-            console.error('Error al agregar al carrito:', error);
+            console.error('❌ Error al agregar al carrito:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Error al agregar producto al carrito' 
@@ -255,7 +266,7 @@ const carritoController = {
     // Vaciar carrito completo
     vaciar: async (req, res) => {
         try {
-            const sesionId = req.session.id;
+            const sesionId = req.sessionID; // ✅ CAMBIO AQUÍ
             const usuarioId = req.session.usuarioId || null;
 
             const [carrito] = await pool.query(

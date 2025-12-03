@@ -60,17 +60,34 @@ const usuariosController = {
             req.session.nombre = nombre;
             req.session.email = email;
 
-            res.json({ 
-                success: true, 
-                message: 'Usuario registrado exitosamente', 
-                data: { 
-                    id: result.insertId, 
-                    nombre,
-                    email
-                } 
+            // ✅ LOGS DE DEBUG
+            console.log('✅ REGISTRO - Sesión creada:', req.session);
+            console.log('✅ REGISTRO - Session ID:', req.sessionID);
+
+            // ✅ GUARDAR EXPLÍCITAMENTE
+            req.session.save((err) => {
+                if (err) {
+                    console.error('❌ REGISTRO - Error al guardar sesión:', err);
+                    return res.status(500).json({ 
+                        success: false, 
+                        message: 'Error al registrar usuario' 
+                    });
+                }
+
+                console.log('✅ REGISTRO - Sesión guardada correctamente');
+
+                res.json({ 
+                    success: true, 
+                    message: 'Usuario registrado exitosamente', 
+                    data: { 
+                        id: result.insertId, 
+                        nombre,
+                        email
+                    } 
+                });
             });
         } catch (error) {
-            console.error('Error al registrar usuario:', error);
+            console.error('❌ REGISTRO - Error:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Error al registrar usuario' 
@@ -82,6 +99,8 @@ const usuariosController = {
     login: async (req, res) => {
         try {
             const { email, password } = req.body;
+
+            console.log('\n🔐 LOGIN - Intento de inicio de sesión para:', email);
 
             // Validar datos requeridos
             if (!email || !password) {
@@ -98,6 +117,7 @@ const usuariosController = {
             );
 
             if (usuarios.length === 0) {
+                console.log('❌ LOGIN - Usuario no encontrado');
                 return res.status(401).json({ 
                     success: false, 
                     message: 'Email o contraseña incorrectos' 
@@ -110,31 +130,53 @@ const usuariosController = {
             const passwordValido = await bcrypt.compare(password, usuario.password);
 
             if (!passwordValido) {
+                console.log('❌ LOGIN - Contraseña incorrecta');
                 return res.status(401).json({ 
                     success: false, 
                     message: 'Email o contraseña incorrectos' 
                 });
             }
 
-            // Crear sesión
+            // ✅ CREAR SESIÓN
             req.session.usuarioId = usuario.id;
             req.session.nombre = usuario.nombre;
             req.session.email = usuario.email;
 
-            res.json({ 
-                success: true, 
-                message: 'Inicio de sesión exitoso',
-                data: { 
-                    id: usuario.id, 
-                    nombre: usuario.nombre, 
-                    email: usuario.email,
-                    telefono: usuario.telefono,
-                    direccion: usuario.direccion,
-                    ciudad: usuario.ciudad
+            console.log('✅ LOGIN - Sesión antes de guardar:', {
+                usuarioId: req.session.usuarioId,
+                nombre: req.session.nombre,
+                sessionID: req.sessionID
+            });
+
+            // ✅ GUARDAR EXPLÍCITAMENTE LA SESIÓN
+            req.session.save((err) => {
+                if (err) {
+                    console.error('❌ LOGIN - Error al guardar sesión:', err);
+                    return res.status(500).json({ 
+                        success: false, 
+                        message: 'Error al iniciar sesión' 
+                    });
                 }
+
+                console.log('✅ LOGIN - Sesión guardada correctamente');
+                console.log('✅ LOGIN - Usuario ID:', req.session.usuarioId);
+                console.log('✅ LOGIN - Session ID:', req.sessionID);
+
+                res.json({ 
+                    success: true, 
+                    message: 'Inicio de sesión exitoso',
+                    data: { 
+                        id: usuario.id, 
+                        nombre: usuario.nombre, 
+                        email: usuario.email,
+                        telefono: usuario.telefono,
+                        direccion: usuario.direccion,
+                        ciudad: usuario.ciudad
+                    }
+                });
             });
         } catch (error) {
-            console.error('Error al iniciar sesión:', error);
+            console.error('❌ LOGIN - Error:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Error al iniciar sesión' 
@@ -144,14 +186,19 @@ const usuariosController = {
 
     // Cerrar sesión
     logout: (req, res) => {
+        console.log('🚪 LOGOUT - Cerrando sesión para usuario:', req.session.usuarioId);
+        
         req.session.destroy((err) => {
             if (err) {
-                console.error('Error al cerrar sesión:', err);
+                console.error('❌ LOGOUT - Error al cerrar sesión:', err);
                 return res.status(500).json({ 
                     success: false, 
                     message: 'Error al cerrar sesión' 
                 });
             }
+            
+            console.log('✅ LOGOUT - Sesión cerrada correctamente');
+            
             res.json({ 
                 success: true, 
                 message: 'Sesión cerrada exitosamente' 
@@ -162,7 +209,13 @@ const usuariosController = {
     // Obtener usuario actual
     obtenerActual: async (req, res) => {
         try {
+            console.log('\n👤 OBTENER USUARIO - Verificando sesión...');
+            console.log('🔑 Session ID:', req.sessionID);
+            console.log('📦 Sesión completa:', JSON.stringify(req.session, null, 2));
+            console.log('👤 Usuario ID en sesión:', req.session.usuarioId);
+            
             if (!req.session.usuarioId) {
+                console.log('❌ OBTENER USUARIO - No hay usuarioId en la sesión');
                 return res.status(401).json({ 
                     success: false, 
                     message: 'No hay sesión activa' 
@@ -175,18 +228,21 @@ const usuariosController = {
             );
 
             if (usuarios.length === 0) {
+                console.log('❌ OBTENER USUARIO - Usuario no encontrado en BD');
                 return res.status(404).json({ 
                     success: false, 
                     message: 'Usuario no encontrado' 
                 });
             }
 
+            console.log('✅ OBTENER USUARIO - Usuario encontrado:', usuarios[0].nombre);
+
             res.json({ 
                 success: true, 
                 data: usuarios[0]
             });
         } catch (error) {
-            console.error('Error al obtener usuario:', error);
+            console.error('❌ OBTENER USUARIO - Error:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Error al obtener información del usuario' 
